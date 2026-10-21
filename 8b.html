@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>8A
+    </title>
+  </head>
+  <body>
+    <script>
+      const product={
+        name: 'basketball',
+        price: 2095
+      }
+      console.log(product);
+      product.price+=500;
+      product['delivery-time']='3 days';
+      console.log(product);
+      const product1={
+        name: 'Nitin',
+        price: 2095
+      }
+
+      const product2={
+        name: 'Taniya',
+        price1: 600032
+      }
+      function fx(product1, product2){
+        const {price}=product1;
+        const {price1}=product2;
+        if(price>price1){
+          return `${product1.name} is greater than ${product2.name}`;
+        }
+        else{
+          return `${product2.name} is greater than ${product1.name}`;
+        }
+      }
+      console.log(fx(product1,product2));
+    </script>
+  </body>
+</html>

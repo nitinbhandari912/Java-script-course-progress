@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Guess Game</title>
+  </head>
+  <body>
+    <!-- Call the function and pass the user's choice -->
+    <button onclick="playGame('Heads')">Heads</button>
+    <button onclick="playGame('Tails')">Tails</button>
+
+    <script>
+      // 1. Load the score from local storage or set defaults
+      // (Note: corrected 'looses' to 'losses' for standard spelling)
+      let score = JSON.parse(localStorage.getItem('score')) || {
+        wins: 0,
+        losses: 0
+      };
+
+      function playGame(guess) {
+        // 2. Generate the PC's choice inside the function so it runs on EVERY click
+        const randomNo = Math.random();
+        let result = randomNo < 0.5 ? 'Heads' : 'Tails';
+
+        console.log(`You chose ${guess}`);
+        console.log(`The PC chose ${result}`);
+
+        // 3. Compare results and update the score
+        if (result === guess) {
+          score.wins++;
+          alert(`Your guess is correct! You won ${score.wins} times and lost ${score.losses} times.`);
+        } else {
+          score.losses++;
+          alert(`Your guess is incorrect. You won ${score.wins} times and lost ${score.losses} times.`);
+        }
+
+        // 4. Save the updated score to localStorage AFTER the score changes
+        localStorage.setItem('score', JSON.stringify(score));
+      }
+    </script>
+  </body>
+</html>

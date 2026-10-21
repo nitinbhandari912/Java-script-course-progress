@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Objects</title>
+  </head>
+  <body>
+    <script>
+      const product ={
+        name :'socks',
+        price: 1090
+      };
+      console.log(product);
+      console.log(product.name);
+      console.log(product.price);
+
+      product.name='cotton socks';
+      console.log(product);
+      product.newProperty = true;
+      console.log(product);
+
+      const product2={
+        name: 'shirt',
+        rating: {
+          stars: 4.2,
+          count: 87
+        },
+        fun: function function1(){
+          console.log('funciton inside object');
+        }
+      };
+      console.log(product['name']);
+      console.log(prooduct2.rating.count);
+
+      console.log(typeof console.log);
+      delete product.newProperty;
+
+      console.log(JSON.stringify(product2));
+      const jsonString = JSON.stringify(product2);
+      console.log(JSON.parse(jsonString));
+
+      console.log('hello'.length);
+      console.log('hello'.toUpperCase());
+
+      const object1 ={
+        message: 'hello'
+     };
+
+      const object2 = object1;
+
+      object1.message = 'Good Job!';
+     console.log(object2); //even though we changed only object one but as its shares only refrences so object 2 also get changed 
+
+
+      //also we cannot compare objects directly
+
+      const object3 = {
+        message: 'Good Job!'
+      };
+      console.log(object1 === object3); // even though its content is same it does not share the same refrences so they are not equal
+      console.log(object1===object2);// they are equal as they share the same refrences  so whenever we compare objects like this remember that we are comparing the refrences not the content inside
+      const object4 = {
+        message: 'Good Job!',
+        price: 899
+      };
+     // const message = object4.message;
+     const{message}= object4;
+     console.log(message);
+     const {messages , price} = object4;
+     console.log(price);
+
+     const object5 = {
+      //message: message
+      message,
+      /*method: function function1(){
+        console.log('method');
+      }
+        */
+      method1(){
+        console.log('method');
+      }
+     };
+     console.log(object5);
+    </script>
+  </body>
+</html>
